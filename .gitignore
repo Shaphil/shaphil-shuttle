@@ -1,0 +1,10 @@
+# Build and project files
+/target
+.shuttle-storage
+Secrets*.toml
+
+# IDEs and Editors
+.code
+.code/**
+.idea/
+.idea/**
