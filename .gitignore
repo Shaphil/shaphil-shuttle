@@ -11,3 +11,8 @@ Secrets*.toml
 
 # Other
 .env
+
+# SQLite databases
+*.db
+*.sqlite
+*.sqlite3
