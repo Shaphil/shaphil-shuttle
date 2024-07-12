@@ -8,3 +8,6 @@ Secrets*.toml
 .code/**
 .idea/
 .idea/**
+
+# Other
+.env
