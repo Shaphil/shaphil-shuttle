@@ -1,5 +1,6 @@
 use actix_web::{get, HttpResponse, Responder};
 use crate::models::User;
+use crate::db;
 
 #[get("/")]
 async fn home() -> impl Responder {
@@ -13,4 +14,20 @@ async fn home() -> impl Responder {
     return HttpResponse::Ok()
         .content_type("application/json")
         .json(user);
+}
+
+#[get("/api/v1/users")]
+pub async fn get_users() -> impl Responder {
+    match db::get_users().await {
+        Ok(Some(users)) => {
+            return HttpResponse::Ok()
+                .content_type("application/json")
+                .json(users);
+        }
+        Ok(None) => {
+            HttpResponse::NoContent()
+                .body("There are no users in the system")
+        }
+        _ => HttpResponse::NoContent().into()
+    }
 }
