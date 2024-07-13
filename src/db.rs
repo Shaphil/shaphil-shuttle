@@ -1,12 +1,12 @@
 use std::env;
-use std::error::Error;
+// use std::error::Error;
 
 use dotenvy::dotenv;
 use libsql::{Builder, Database};
 
 use crate::models::User;
 
-pub async fn get_users() -> Result<Option<Vec<User>>, Box<dyn Error>> {
+pub async fn get_users() -> Option<Vec<User>> {
     let mut users = Vec::new();
     let db = get_database_connection().await;
     let connection = db.connect().unwrap();
@@ -23,8 +23,8 @@ pub async fn get_users() -> Result<Option<Vec<User>>, Box<dyn Error>> {
     }
 
     match users.len() > 0 {
-        true => Ok(Some(users)),
-        false => Ok(None)
+        true => Some(users),
+        false => None
     }
 }
 
