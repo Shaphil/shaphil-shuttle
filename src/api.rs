@@ -19,15 +19,14 @@ async fn home() -> impl Responder {
 #[get("/api/v1/users")]
 pub async fn get_users() -> impl Responder {
     match db::get_users().await {
-        Ok(Some(users)) => {
+        Some(users) => {
             return HttpResponse::Ok()
                 .content_type("application/json")
                 .json(users);
         }
-        Ok(None) => {
+        None => {
             HttpResponse::NoContent()
                 .body("There are no users in the system")
         }
-        _ => HttpResponse::NoContent().into()
     }
 }
