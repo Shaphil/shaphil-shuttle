@@ -8,7 +8,8 @@ actix-rt = "2.10.0"
 actix-web = "4.3.1"
 shuttle-actix-web = "0.46.0"
 shuttle-runtime = "0.46.0"
-tokio = "1.26.0"
+tokio = { version = "1.26.0", features = ["macros", "rt"] }
 serde = { version = "1.0.204", features = ["derive"] }
 libsql = "0.4.0"
 dotenvy = "0.15.7"
+sea-orm = { version = "0.12.15", features = ["debug-print", "runtime-tokio-native-tls", "sqlx-sqlite"] }
