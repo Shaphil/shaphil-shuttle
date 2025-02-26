@@ -5,11 +5,11 @@ edition = "2021"
 
 [dependencies]
 actix-rt = "2.10.0"
-actix-web = "4.3.1"
-shuttle-actix-web = "0.46.0"
-shuttle-runtime = "0.46.0"
+actix-web = "4.9.0"
 tokio = { version = "1.26.0", features = ["macros", "rt"] }
-serde = { version = "1.0.204", features = ["derive"] }
-libsql = "0.4.0"
+serde = { version = "1.0.218", features = ["derive"] }
+libsql = "0.6.0"
 dotenvy = "0.15.7"
-sea-orm = { version = "0.12.15", features = ["debug-print", "runtime-tokio-native-tls", "sqlx-sqlite"] }
+sea-orm = { version = "1.1.6", features = ["debug-print", "runtime-tokio-native-tls", "sqlx-sqlite"] }
+shuttle-runtime = "0.52.0"
+shuttle-actix-web = "0.52.0"
